@@ -1,7 +1,9 @@
 package uz.xtreme.example.utils;
 
 import org.springframework.stereotype.Component;
+import uz.xtreme.example.config.ApplicationContextProvider;
 
+import javax.servlet.http.HttpServletRequest;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -15,6 +17,18 @@ import java.security.NoSuchAlgorithmException;
 public class BaseUtils {
 
     private static final char[] HEX_DIGITS = "0123456789abcdef".toCharArray();
+    private static final String[] IP_HEADER_CANDIDATES = {
+            "X-Forwarded-For",
+            "Proxy-Client-IP",
+            "WL-Proxy-Client-IP",
+            "HTTP_X_FORWARDED_FOR",
+            "HTTP_X_FORWARDED",
+            "HTTP_X_CLUSTER_CLIENT_IP",
+            "HTTP_CLIENT_IP",
+            "HTTP_FORWARDED_FOR",
+            "HTTP_FORWARDED",
+            "HTTP_VIA",
+            "REMOTE_ADDR"};
 
     public String encodeToMd5(String data) {
 
@@ -27,6 +41,20 @@ public class BaseUtils {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static Object getBean(String name) {
+        return ApplicationContextProvider.applicationContext.getBean(name);
+    }
+
+    public String getClientIpAddress(HttpServletRequest request) {
+        for (String header : IP_HEADER_CANDIDATES) {
+            String ip = request.getHeader(header);
+            if (ip != null && ip.length() != 0 && !"unknown".equalsIgnoreCase(ip)) {
+                return ip;
+            }
+        }
+        return request.getRemoteAddr();
     }
 
     private static String toHex(byte[] data) {
