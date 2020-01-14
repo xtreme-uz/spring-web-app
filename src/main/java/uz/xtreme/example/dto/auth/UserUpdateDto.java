@@ -20,6 +20,8 @@ import uz.xtreme.example.dto.GenericCrudDto;
 @ApiModel("User update request")
 public class UserUpdateDto extends GenericCrudDto {
 
+    private Long id;
+
     private String userName;
 
 //    private List<RoleDto> roles;

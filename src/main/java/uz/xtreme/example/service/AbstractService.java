@@ -16,7 +16,7 @@ import java.util.List;
  * Time: 17:04
  */
 
-public class AbstractService<T, C extends GenericCriteria, R extends IGenericRepository> {
+public abstract class AbstractService<T, C extends GenericCriteria, R extends IGenericRepository> {
 
     protected final R repository;
     protected final BaseUtils utils;

@@ -5,6 +5,7 @@ import uz.xtreme.example.criteria.auth.PermissionCriteria;
 import uz.xtreme.example.dao.GenericDao;
 import uz.xtreme.example.domain.auth.Permission;
 
+import javax.persistence.Query;
 import java.util.List;
 import java.util.Map;
 
@@ -38,4 +39,16 @@ public class PermissionRepository extends GenericDao<Permission, PermissionCrite
         onDefineWhereCause(criteria, whereCause, params, queryBuilder);
     }
 
+    @Override
+    protected Query defineQuerySelect(PermissionCriteria criteria, StringBuilder queryBuilder, boolean onDefineCount) {
+        String queryStr = " SELECT" + (onDefineCount ? " COUNT(t) " : " t ") + " FROM Permission t " +
+                joinStringOnQuerying(criteria) +
+                " WHERE t.deleted = 0 " + queryBuilder.toString() + onSortBy(criteria).toString();
+        return onDefineCount ? entityManager.createQuery(queryStr, Long.class) : entityManager.createQuery(queryStr);
+    }
+
+    @Override
+    protected void onDefineWhereCause(PermissionCriteria criteria, List<String> whereCause, Map<String, Object> params, StringBuilder queryBuilder) {
+        super.onDefineWhereCause(criteria, whereCause, params, queryBuilder);
+    }
 }

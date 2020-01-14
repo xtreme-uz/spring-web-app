@@ -18,7 +18,6 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class AppErrorDto implements Serializable {
 
-
     private String friendlyMessage;
 
     private String systemName;

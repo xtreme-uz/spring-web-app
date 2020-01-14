@@ -2,7 +2,6 @@ package uz.xtreme.example.repository.auth;
 
 import org.springframework.stereotype.Repository;
 import uz.xtreme.example.criteria.auth.RoleCriteria;
-import uz.xtreme.example.criteria.auth.UserCriteria;
 import uz.xtreme.example.dao.GenericDao;
 import uz.xtreme.example.domain.auth.Role;
 

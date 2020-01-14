@@ -1,5 +1,6 @@
 package uz.xtreme.example.utils.validator.auth;
 
+import org.springframework.stereotype.Component;
 import uz.xtreme.example.domain.auth.User;
 import uz.xtreme.example.dto.CrudDto;
 import uz.xtreme.example.dto.auth.UserCreateDto;
@@ -13,6 +14,7 @@ import uz.xtreme.example.utils.validator.BaseCrudValidator;
  * Time: 11:22
  */
 
+@Component
 public class UserServiceValidator extends BaseCrudValidator<User, UserCreateDto, UserUpdateDto> {
 
     public UserServiceValidator(BaseUtils utils) {

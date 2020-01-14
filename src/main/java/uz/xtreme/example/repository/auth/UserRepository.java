@@ -34,13 +34,4 @@ public class UserRepository extends GenericDao<User, UserCriteria> implements IU
         onDefineWhereCause(criteria, whereCause, params, queryBuilder);
     }
 
-    @Override
-    protected Query defineQuerySelect(UserCriteria criteria, StringBuilder queryBuilder, boolean onDefineCount) {
-
-        String queryStr = " SELECT " + (onDefineCount ? " COUNT(t) " : " t ") + " FROM  User t " +
-                joinStringOnQuerying(criteria) +
-                " WHERE t.deleted = 0 " + queryBuilder.toString() + onSortBy(criteria).toString();
-        return onDefineCount ? entityManager.createQuery(queryStr, Long.class) : entityManager.createQuery(queryStr);
-
-    }
 }

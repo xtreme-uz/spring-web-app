@@ -2,6 +2,7 @@ package uz.xtreme.example.repository;
 
 import uz.xtreme.example.criteria.GenericCriteria;
 import uz.xtreme.example.domain.Auditable;
+import uz.xtreme.example.domain.auth.User;
 
 import java.util.List;
 
@@ -22,5 +23,4 @@ public interface IGenericRepository<T extends Auditable, C extends GenericCriter
     List<T> findAll(C criteria);
 
     <G> List<G> findAllSelections(C criteria);
-
 }

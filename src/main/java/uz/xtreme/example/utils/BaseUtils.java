@@ -2,10 +2,12 @@ package uz.xtreme.example.utils;
 
 import org.springframework.stereotype.Component;
 import uz.xtreme.example.config.ApplicationContextProvider;
+import uz.xtreme.example.dao.FunctionParam;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 /**
  * Author: Rustambekov Avazbek
@@ -77,6 +79,20 @@ public class BaseUtils {
 
     public boolean isEmpty(Object l) {
         return l == null;
+    }
+
+    public String generateParamText(List<FunctionParam> params) {
+        StringBuilder builder = new StringBuilder();
+        builder.append(" ( ");
+        for (int i = 0; i < params.size(); i++) {
+            if (i == 0) {
+                builder.append(" ? ");
+            } else {
+                builder.append(" ,? ");
+            }
+        }
+        builder.append(" ) ");
+        return builder.toString();
     }
 
 }
