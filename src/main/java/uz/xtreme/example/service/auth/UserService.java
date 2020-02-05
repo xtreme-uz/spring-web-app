@@ -40,8 +40,7 @@ public class UserService extends AbstractCrudService<UserDto, UserCreateDto, Use
     private GenericMapper genericMapper;
     private UserServiceValidator validator;
 
-    public UserService(IUserRepository repository, BaseUtils utils, IErrorRepository errorRepository,
-                       UserMapper mapper, GenericMapper genericMapper, UserServiceValidator validator) {
+    public UserService(IUserRepository repository, BaseUtils utils, IErrorRepository errorRepository, UserMapper mapper, GenericMapper genericMapper, UserServiceValidator validator) {
         super(repository, utils, errorRepository);
         this.mapper = mapper;
         this.genericMapper = genericMapper;

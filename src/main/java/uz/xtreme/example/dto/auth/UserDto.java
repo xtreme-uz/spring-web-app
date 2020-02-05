@@ -20,6 +20,4 @@ public class UserDto extends GenericDto {
 
     private String userName;
 
-//    private List<RoleDto> roles;
-
 }

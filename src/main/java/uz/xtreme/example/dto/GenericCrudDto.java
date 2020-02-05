@@ -1,5 +1,7 @@
 package uz.xtreme.example.dto;
 
+import com.google.gson.Gson;
+
 /**
  * Author: Rustambekov Avazbek
  * Date: 23/10/19
@@ -8,6 +10,9 @@ package uz.xtreme.example.dto;
 
 public abstract class GenericCrudDto implements CrudDto {
 
-    //toString
+    @Override
+    public String toString() {
+        return new Gson().toJson(this);
+    }
 
 }

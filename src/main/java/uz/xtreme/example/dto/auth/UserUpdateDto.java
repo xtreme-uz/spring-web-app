@@ -1,10 +1,6 @@
 package uz.xtreme.example.dto.auth;
 
-import io.swagger.annotations.ApiModel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import uz.xtreme.example.dto.GenericCrudDto;
 
 /**
@@ -17,13 +13,11 @@ import uz.xtreme.example.dto.GenericCrudDto;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ApiModel("User update request")
+@Builder
 public class UserUpdateDto extends GenericCrudDto {
 
     private Long id;
 
     private String userName;
-
-//    private List<RoleDto> roles;
 
 }

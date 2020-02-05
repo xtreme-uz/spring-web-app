@@ -22,7 +22,7 @@ import javax.persistence.Table;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "auth_permissions", schema = "auth")
+@Table(name = "auth_permissions")
 public class Permission extends Auditable implements GrantedAuthority {
 
     @Column(name = "name")

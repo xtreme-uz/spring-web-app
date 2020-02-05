@@ -1,6 +1,5 @@
 package uz.xtreme.example.dto;
 
-import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 
 /**
@@ -16,7 +15,6 @@ import lombok.*;
 @AllArgsConstructor
 public class GenericDto implements Dto {
 
-    @ApiModelProperty(required = true, example = "1")
     private Long id;
 
     //toString

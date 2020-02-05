@@ -22,7 +22,7 @@ import java.util.Collection;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "auth_roles", schema = "auth")
+@Table(name = "auth_roles")
 public class Role extends Auditable implements GrantedAuthority {
 
     @Column(name = "name")
@@ -32,7 +32,7 @@ public class Role extends Auditable implements GrantedAuthority {
     private String codeName;
 
     @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(name = "auth_roles_permissions", schema = "auth",
+    @JoinTable(name = "auth_roles_permissions",
             joinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "permission_id", referencedColumnName = "id")})
     @WhereJoinTable(clause = "is_active = 1")
