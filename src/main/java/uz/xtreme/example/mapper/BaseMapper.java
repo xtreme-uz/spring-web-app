@@ -15,10 +15,15 @@ import java.util.List;
 public interface BaseMapper<E extends Auditable, D extends GenericDto, CD extends CrudDto, UD extends CrudDto> {
 
     D toDto(E entity);
+
     E fromDto(D dto);
+
     List<D> toDto(List<E> entityList);
+
     List<E> fromDto(List<D> dtoList);
+
     E fromCreateDto(CD createDto);
+
     E fromUpdateDto(UD updateDto);
 
 }

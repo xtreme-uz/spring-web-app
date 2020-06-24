@@ -5,7 +5,6 @@ import uz.xtreme.example.criteria.auth.UserCriteria;
 import uz.xtreme.example.dao.GenericDao;
 import uz.xtreme.example.domain.auth.User;
 
-import javax.persistence.Query;
 import java.util.List;
 import java.util.Map;
 

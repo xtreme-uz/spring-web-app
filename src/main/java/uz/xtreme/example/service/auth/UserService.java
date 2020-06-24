@@ -36,9 +36,9 @@ public class UserService extends AbstractCrudService<UserDto, UserCreateDto, Use
 
     private final Log logger = LogFactory.getLog(getClass());
 
-    private UserMapper mapper;
-    private GenericMapper genericMapper;
-    private UserServiceValidator validator;
+    private final UserMapper mapper;
+    private final GenericMapper genericMapper;
+    private final UserServiceValidator validator;
 
     public UserService(IUserRepository repository, BaseUtils utils, IErrorRepository errorRepository, UserMapper mapper, GenericMapper genericMapper, UserServiceValidator validator) {
         super(repository, utils, errorRepository);

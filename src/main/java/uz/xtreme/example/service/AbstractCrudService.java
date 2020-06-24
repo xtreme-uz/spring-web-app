@@ -20,7 +20,7 @@ import javax.validation.constraints.NotNull;
 public abstract class AbstractCrudService<T, CR extends CrudDto, UP extends CrudDto, C extends GenericCriteria, R extends IGenericCrudRepository> extends AbstractService<T, C, R> {
 
     protected String schema = "";
-    
+
     public AbstractCrudService(R repository, BaseUtils utils, IErrorRepository errorRepository) {
         super(repository, utils, errorRepository);
     }

@@ -2,7 +2,6 @@ package uz.xtreme.example.repository;
 
 import uz.xtreme.example.criteria.GenericCriteria;
 import uz.xtreme.example.domain.Auditable;
-import uz.xtreme.example.domain.auth.User;
 
 import java.util.List;
 
